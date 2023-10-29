@@ -6,6 +6,8 @@ WORKDIR /flask-app
 
 COPY requirements.txt .
 
+USER app
+
 RUN pip install -r requirements.txt 
 
 COPY ./app ./app 

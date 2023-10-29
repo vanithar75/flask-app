@@ -1,15 +1,16 @@
 FROM python:3.8-slim-buster
 
-RUN useradd -u 5000 app
+RUN useradd -m app
 
 WORKDIR /flask-app
 
 COPY requirements.txt .
 
-USER app
 
 RUN pip install -r requirements.txt 
 
 COPY ./app ./app 
+
+USER app
 
 CMD ["python", "./app/app.py"]
